@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>성민우 · Backend & Infra Developer</title>
+  <meta name="description" content="성민우 (MinWoo Sung) — 백엔드·인프라 개발자. Django/DRF, AWS, 검색 엔진, AI 이미지 생성 서비스." />
+  <style>
+    :root {
+      --bg: #ffffff;
+      --surface: #f7f7f8;
+      --surface-2: #f0f0f2;
+      --border: #e4e4e7;
+      --text: #18181b;
+      --text-2: #52525b;
+      --text-3: #8a8a94;
+      --accent: #4f46e5;
+      --accent-soft: #eef2ff;
+      --shadow: 0 1px 2px rgba(0,0,0,.04), 0 8px 24px rgba(0,0,0,.05);
+      --radius: 14px;
+      --maxw: 820px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0d0d10;
+        --surface: #16161a;
+        --surface-2: #1d1d22;
+        --border: #2a2a31;
+        --text: #f4f4f5;
+        --text-2: #b4b4bd;
+        --text-3: #7a7a85;
+        --accent: #818cf8;
+        --accent-soft: #1e1b3a;
+        --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.4);
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard",
+        "Segoe UI", Roboto, "Noto Sans KR", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 16px;
+      letter-spacing: -0.01em;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+    /* ---------- Hero ---------- */
+    header {
+      padding: 96px 0 56px;
+    }
+    .eyebrow {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 6px 12px;
+      border-radius: 999px;
+      margin-bottom: 22px;
+    }
+    h1 {
+      font-size: clamp(38px, 7vw, 60px);
+      line-height: 1.08;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 18px;
+    }
+    h1 .en { color: var(--text-3); font-weight: 600; font-size: 0.5em; letter-spacing: -0.01em; }
+    .tagline {
+      font-size: clamp(18px, 3vw, 22px);
+      color: var(--text-2);
+      max-width: 620px;
+      margin-bottom: 32px;
+    }
+    .contacts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .contacts a {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-2);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 9px 15px;
+      border-radius: 999px;
+      transition: all .18s ease;
+    }
+    .contacts a:hover {
+      color: var(--text);
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    /* ---------- Sections ---------- */
+    section { padding: 40px 0; }
+    .sec-head {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+    .sec-head h2 {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      white-space: nowrap;
+    }
+    .sec-head .line { flex: 1; height: 1px; background: var(--border); }
+
+    .lead {
+      font-size: clamp(19px, 3vw, 24px);
+      line-height: 1.55;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+    .lead .hl { color: var(--accent); }
+    .about p { color: var(--text-2); margin-top: 20px; font-size: 16.5px; }
+
+    /* ---------- Strength cards ---------- */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 22px 24px;
+      transition: border-color .18s ease, transform .18s ease;
+    }
+    .card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    .card p { font-size: 14.5px; color: var(--text-2); line-height: 1.6; }
+    .card .num { font-size: 13px; font-weight: 700; color: var(--accent); display: block; margin-bottom: 10px; }
+
+    /* ---------- Stack ---------- */
+    .stack-group { margin-bottom: 22px; }
+    .stack-group:last-child { margin-bottom: 0; }
+    .stack-label { font-size: 13px; font-weight: 700; color: var(--text-3); margin-bottom: 11px; letter-spacing: 0.03em; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag {
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--text-2);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 6px 13px;
+      border-radius: 8px;
+    }
+    .tag.key { color: var(--accent); border-color: var(--accent); background: var(--accent-soft); font-weight: 600; }
+
+    /* ---------- Timeline projects ---------- */
+    .timeline { position: relative; }
+    .proj {
+      position: relative;
+      padding: 0 0 34px 30px;
+      border-left: 2px solid var(--border);
+    }
+    .proj:last-child { padding-bottom: 0; }
+    .proj::before {
+      content: "";
+      position: absolute;
+      left: -7px; top: 4px;
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 3px solid var(--accent);
+    }
+    .proj .period { font-size: 13px; font-weight: 600; color: var(--accent); letter-spacing: 0.02em; }
+    .proj h3 { font-size: 20px; font-weight: 700; margin: 4px 0 6px; letter-spacing: -0.02em; }
+    .proj .role {
+      display: inline-block;
+      font-size: 12.5px; font-weight: 600;
+      color: var(--text-2);
+      background: var(--surface-2);
+      padding: 3px 10px; border-radius: 6px;
+      margin-bottom: 12px;
+    }
+    .proj .summary { font-size: 15px; color: var(--text-2); margin-bottom: 14px; }
+    .proj ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .proj li {
+      position: relative;
+      padding-left: 18px;
+      font-size: 14.5px;
+      color: var(--text-2);
+      line-height: 1.6;
+    }
+    .proj li::before {
+      content: "";
+      position: absolute; left: 2px; top: 10px;
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--text-3);
+    }
+    .proj li strong { color: var(--text); font-weight: 600; }
+    .metric {
+      display: inline-block;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+      padding: 56px 0 80px;
+      text-align: center;
+      color: var(--text-3);
+      font-size: 14px;
+    }
+    footer .cta {
+      display: inline-block;
+      margin-bottom: 24px;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+    footer .cta a { color: var(--accent); border-bottom: 2px solid var(--accent); }
+
+    @media (max-width: 560px) {
+      header { padding: 64px 0 40px; }
+      .cards { grid-template-columns: 1fr; }
+      section { padding: 32px 0; }
+    }
+
+    /* ---------- Print ---------- */
+    @media print {
+      :root { --bg:#fff; --text:#000; --text-2:#333; --border:#ccc; --accent:#333; --surface:#fff; --surface-2:#f5f5f5; --accent-soft:#f5f5f5; }
+      body { font-size: 11pt; }
+      header { padding: 0 0 20px; }
+      .contacts a:hover, .card:hover, .contacts a { transform:none; }
+      .proj { break-inside: avoid; }
+      footer .cta { font-size: 14pt; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ HERO ============ -->
+  <header>
+    <div class="wrap">
+      <span class="eyebrow">Backend · Infra · Full-stack Developer</span>
+      <h1>성민우 <span class="en">MinWoo Sung</span></h1>
+      <p class="tagline">
+        설계부터 배포·운영까지 혼자 책임지고 끌고 가는 백엔드·인프라 개발자입니다.
+        도메인 분석과 DB 모델링, 검색 엔진, AI 이미지 생성 서비스까지 넓게 다룹니다.
+      </p>
+      <nav class="contacts">
+        <a href="mailto:sngmlnu@plus-ex.com">✉️ sngmlnu@plus-ex.com</a>
+        <!-- 아래 링크는 정보 채운 뒤 주석 해제 -->
+        <!-- <a href="https://github.com/minwoosung" target="_blank" rel="noopener">GitHub</a> -->
+        <!-- <a href="tel:+82">📱 휴대전화</a> -->
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="about">
+    <div class="wrap">
+      <div class="sec-head"><h2>About</h2><span class="line"></span></div>
+      <p class="lead">
+        플러스엑스에서 <span class="hl">약 3년 6개월</span> 동안,
+        <span class="hl">백엔드와 인프라를 한 사람이 책임지는</span> 프로젝트를 다수 수행해 왔습니다.
+      </p>
+      <p>
+        Django/DRF 기반 서버 개발은 물론, AWS 인프라 구축과 CI/CD, Docker 패키징, 무중단 배포까지
+        직접 다룹니다. 대부분의 참여 프로젝트에서 도메인 분석과 DB 스키마 설계를 주도했고,
+        KB 자산운용 통합 개편에서는 PL(Project Leader)로서 다중 외부 데이터 소스 통합과
+        검색 엔진 설계를 이끌었습니다.
+      </p>
+      <p>
+        최근에는 자산운용 도메인의 검색·캐싱 최적화, 그리고 ComfyUI 기반 AI 이미지 생성 서비스의
+        전 라이프사이클(워크플로우 설계 → API 연동 → GPU 서버 배포)에 집중하고 있습니다.
+        새로운 도메인을 빠르게 이해하고, 제약이 많은 환경(금융권 폐쇄망·고객사 보안망)에서도
+        끝까지 배포·운영해 낸 경험을 강점으로 생각합니다.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ STRENGTHS ============ -->
+  <section>
+    <div class="wrap">
+      <div class="sec-head"><h2>What I Do</h2><span class="line"></span></div>
+      <div class="cards">
+        <div class="card">
+          <span class="num">01</span>
+          <h3>설계 주도 · PL 경험</h3>
+          <p>도메인 분석, DB 스키마 설계, 외부 데이터 소스 통합 협의, ETL 벤더 커뮤니케이션까지 주도. KB 자산운용 통합 개편에서 PL로 프로젝트를 이끌었습니다.</p>
+        </div>
+        <div class="card">
+          <span class="num">02</span>
+          <h3>백엔드 + 인프라 단독 수행</h3>
+          <p>Django/DRF 개발과 AWS(EC2·S3·RDS·Lambda) 구축·운영, Docker 패키징, GitHub Actions CI/CD, Blue/Green 무중단 배포를 한 사람이 책임지고 진행.</p>
+        </div>
+        <div class="card">
+          <span class="num">03</span>
+          <h3>성능 최적화</h3>
+          <p>자산운용 통합검색에서 Redis 기반 시계열 데이터 캐싱 레이어를 도입해 검색 응답을 <span class="metric">1~2초 → 0.2초</span> 수준(약 80% 개선)으로 단축.</p>
+        </div>
+        <div class="card">
+          <span class="num">04</span>
+          <h3>검색 엔진 설계</h3>
+          <p>Elasticsearch/OpenSearch 기반 ETF/Fund 통합검색. 동의어 사전, 자동완성, 오타 교정, 검색어 추천, 실시간 구성종목 검색을 구현.</p>
+        </div>
+        <div class="card">
+          <span class="num">05</span>
+          <h3>AI 이미지 생성 서비스</h3>
+          <p>ComfyUI 워크플로우 설계부터 API 연동, GPU 서버 배포, 멀티 모델(SD 3.5 / Flux / Kontext) 적용까지 전 라이프사이클을 단독 담당.</p>
+        </div>
+        <div class="card">
+          <span class="num">06</span>
+          <h3>레거시 전환 · 시스템 통합</h3>
+          <p>Django 템플릿 API의 DRF 전환, 그룹사 데이터 통합 마이그레이션(PlusA ↔ PlusX), 결재 라인 추상화 등 대규모 구조 전환을 수행.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STACK ============ -->
+  <section>
+    <div class="wrap">
+      <div class="sec-head"><h2>Tech Stack</h2><span class="line"></span></div>
+
+      <div class="stack-group">
+        <div class="stack-label">Backend</div>
+        <div class="tags">
+          <span class="tag key">Python</span>
+          <span class="tag key">Django</span>
+          <span class="tag key">Django REST Framework</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">Redis</span>
+          <span class="tag">Celery</span>
+          <span class="tag">django-celery-beat</span>
+        </div>
+      </div>
+
+      <div class="stack-group">
+        <div class="stack-label">Infrastructure / DevOps</div>
+        <div class="tags">
+          <span class="tag key">AWS</span>
+          <span class="tag">EC2</span>
+          <span class="tag">S3</span>
+          <span class="tag">Lightsail RDS</span>
+          <span class="tag">Lambda</span>
+          <span class="tag">Load Balancer</span>
+          <span class="tag">Auto Scaling</span>
+          <span class="tag">ACM (SSL)</span>
+          <span class="tag key">Docker</span>
+          <span class="tag">Docker Compose</span>
+          <span class="tag">Nginx</span>
+          <span class="tag">GitHub Actions</span>
+          <span class="tag">Blue/Green 무중단 배포</span>
+        </div>
+      </div>
+
+      <div class="stack-group">
+        <div class="stack-label">Search / AI</div>
+        <div class="tags">
+          <span class="tag key">Elasticsearch</span>
+          <span class="tag key">OpenSearch</span>
+          <span class="tag key">ComfyUI</span>
+          <span class="tag">Stable Diffusion 3.5</span>
+          <span class="tag">Flux (Dev/Krea/Fill)</span>
+          <span class="tag">Kontext LLM</span>
+          <span class="tag">Cog-ComfyUI</span>
+          <span class="tag">Replicate</span>
+        </div>
+      </div>
+
+      <div class="stack-group">
+        <div class="stack-label">Integration</div>
+        <div class="tags">
+          <span class="tag">Slack (Slash Command · Bot · Webhook)</span>
+          <span class="tag">LINE Bot (AWS Lambda)</span>
+          <span class="tag">SAML SSO</span>
+          <span class="tag">Figma Plugin</span>
+          <span class="tag">공공데이터 API</span>
+        </div>
+      </div>
+
+      <div class="stack-group">
+        <div class="stack-label">Frontend</div>
+        <div class="tags">
+          <span class="tag">JavaScript (Vanilla)</span>
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section>
+    <div class="wrap">
+      <div class="sec-head"><h2>Projects</h2><span class="line"></span></div>
+      <div class="timeline">
+
+        <article class="proj">
+          <div class="period">2026.01 — 진행 중</div>
+          <h3>KB 자산운용 통합 개편</h3>
+          <span class="role">PL · 백엔드 리드 · 인프라 &nbsp;/&nbsp; 백엔드 3 · 프론트 1 · 퍼블리셔 1</span>
+          <p class="summary">솔트룩스 협업, 자산운용사 홈페이지 / 어드민 통합 개편 프로젝트.</p>
+          <ul>
+            <li><strong>도메인·데이터 설계 주도</strong> — ETF/Fund 도메인 분석, 통합 DB 스키마 설계, 솔트룩스·FnGuide ZeroIn·KBstarM 등 다중 외부 데이터 소스 스키마 통합 협의 및 ETL 벤더와 데이터 연계 방식 정의.</li>
+            <li><strong>금융권 폐쇄망 배포 운영</strong> — KB 원클라우드 / OpenVPN 기반 폐쇄망에서 인프라 구축·CI/CD·배포 전반 담당.</li>
+            <li><strong>인프라 구축</strong> — Web · WAS · WAF 배포 구조 설계, WAS 서버 분리(Backend / Celery+Redis), 매니지드 컨테이너가 제약된 환경에서 Nginx 기반 Blue/Green 무중단 배포 직접 구현.</li>
+            <li><strong>통합 검색 엔진</strong> — Elasticsearch/OpenSearch로 동의어 사전, 자동완성, 오타 교정, 검색어 추천, 실시간 구성종목 검색 구축.</li>
+            <li><strong>시계열 데이터 캐싱 최적화</strong> — 반복 조회되는 시계열 데이터(수익률·시장가·키워드)에 Redis 캐싱 레이어를 설계해 검색 응답 <span class="metric">1~2초 → 0.2초</span> 수준(약 80% 개선) 달성.</li>
+            <li><strong>키워드 기반 개인화 추천 설계</strong> — 사용자별 관심 키워드 점수 누적 구조 설계. 조회(+1)/검색(+3) 점수 적립, Celery 비동기 + Redis 중복 방지(24h TTL), 비회원(X-AID) 점수 로그인 시 병합, Time Decay 배치로 감쇠 (구현은 후임에게 위임).</li>
+          </ul>
+        </article>
+
+        <article class="proj">
+          <div class="period">2025.03 — 2025.12</div>
+          <h3>삼성 GenI — 사내 AI 이미지 생성 서비스</h3>
+          <span class="role">PE · 백엔드·인프라·배포 단독 담당 (1·2·3차 전 계약 참여)</span>
+          <p class="summary">삼성 사내 AI 이미지 생성 서비스. 시스템 설계 및 클라이언트 커뮤니케이션 전담.</p>
+          <ul>
+            <li><strong>이미지 생성 파라미터 스키마 추상화 제안·도입</strong> — 사이즈·seed·스텝 등을 JSON 스키마로 정의하고, 프론트 공통 컴포넌트가 스키마를 해석해 렌더링하는 구조 설계. 기능 추가 시 UI 재구현 없이 스키마만 확장.</li>
+            <li><strong>고객사 보안망 배포 운영</strong> — 삼성 사내 보안망 GitHub 푸시 및 직접 내방 배포, 인터넷 격리 환경에서 Docker 패키징·이미지 전달 운영.</li>
+            <li><strong>1차</strong> — ComfyUI 기반 SD3.5 Text-to-Image 워크플로우 설계·API 연동, Docker Compose 배포 환경 구축, AWS EC2 베타 출시, 이미지 생성/편집(Remove·Inpaint) API 개발.</li>
+            <li><strong>2차</strong> — Flux Dev/Krea/Fill 모델 도입(SD3.5→Flux 전환), Image Combine 기능, Kontext LLM 기반 자연어 편집, Redis 인증 등 보안 강화.</li>
+            <li><strong>3차</strong> — 한/영 다국어 지원(툴팁·에러·번역 API), Batch Size 컴포넌트 추가.</li>
+          </ul>
+        </article>
+
+        <article class="proj">
+          <div class="period">2024.04 — 진행 중</div>
+          <h3>PlusX 사내 AI 이미지 생성 서비스 (GenAI)</h3>
+          <span class="role">백엔드 · 인프라 단독</span>
+          <p class="summary">사내 자체 AI 이미지 생성 플랫폼. 백엔드 / 모델 운영 / GPU 인프라 단독 담당.</p>
+          <ul>
+            <li><strong>관리자 페이지 기반 모델·파라미터 동적 구성</strong> — 삼성 GenI의 JSON 스키마 방식(재배포 필요) 한계를 개선. 스키마를 DB에 저장하고 어드민에서 신규 모델 등록 및 프론트 인풋(슬라이더/숫자/텍스트)을 자유롭게 편집·배치, <strong>배포 없이 새 모델·기능 추가</strong> 가능하게 개선.</li>
+            <li><strong>이미지 모델 운영 변천</strong> — AWS Sagemaker(Juggernaut → Dreamshaper-XL Lightning) → Flux.1 dev → Fal AI 연동. 모델 교체 시 비용·품질 벤치마크 및 자동 배포/삭제 스케줄러 구현.</li>
+            <li><strong>사내 GPU 서버 구축·보안 강화</strong> — Sagemaker → 사내 GPU 서버 이전, Iptables 기반 보안(외부 IP SSH 차단, API 호출 제어), 인증 토큰·프록시 서버 구축.</li>
+            <li><strong>검색 기능</strong> — 키워드 기반 이미지 검색 + 가중치 알고리즘(키워드 70% / 조회수 20% / 북마크 10%).</li>
+            <li><strong>Figma Plugin 연동</strong> — 디자이너가 Figma 안에서 이미지를 생성할 수 있도록 플러그인 백엔드 연동.</li>
+            <li><strong>운영 기능</strong> — 토큰 시스템, 부적절 단어 필터, 한/영 번역, GenAI Admin 통계 대시보드, 회사 계층형 모델. 2025 Seoul Design Festival 출품 자동 배포 파이프라인 구성.</li>
+          </ul>
+        </article>
+
+        <article class="proj">
+          <div class="period">2023.03 — 2025.05</div>
+          <h3>자체 그룹웨어 시스템</h3>
+          <span class="role">핵심 개발자 · 풀스택 (백엔드·프론트·인프라·모바일 API)</span>
+          <p class="summary">사내 그룹웨어 풀스택 개발. 주간보고 93건 작성.</p>
+          <ul>
+            <li><strong>DRF Migration</strong> — Django 템플릿 기반 API를 DRF RESTful 구조로 단계적 전환(메인페이지·캘린더 등).</li>
+            <li><strong>전자결재 시스템 전면 개편</strong> — 결재 라인 추상화 및 모델 재설계(순차/비순차·다단계), 댓글·파일 첨부·일괄 승인·이메일/슬랙/LINE 알림, 템플릿 활성/비활성 관리 및 확장.</li>
+            <li><strong>CIC 통합 (PlusA → PlusX 마이그레이션)</strong> — 프로젝트/휴가/사원/결재 라인 데이터 이관 스크립트, 직급 체계 통합, 데이터 이상 유무 검증.</li>
+            <li><strong>근무제 도메인 설계</strong> — 포괄·비포괄·고정·유연·부분유연·멀티 근무제 설계, 사원별 근로시간/지각/연장근무 계산 로직.</li>
+            <li><strong>Slack 연동</strong> — 그룹웨어 ↔ Slack 사용자 연동, 슬랙에서 결재 승인/반려/취소, 슬래시 커맨드, 스레드 업데이트.</li>
+            <li><strong>기타</strong> — 모바일 앱 API 전반, LINE Bot(AWS Lambda) 사내 알림, 출퇴근 로그 트래킹, Emergency 운영자 페이지, 신규 입사자 코드 리뷰/멘토링.</li>
+          </ul>
+        </article>
+
+        <article class="proj">
+          <div class="period">2024.02 — 2025.03</div>
+          <h3>BlurBlur 웹사이트</h3>
+          <span class="role">백엔드 · 인프라 단독</span>
+          <p class="summary">AI 모델 마케팅 웹사이트 백엔드 / CMS / 인프라.</p>
+          <ul>
+            <li>AWS 인프라 풀세팅 — EC2, S3, Lightsail RDS, SSL, Load Balancer, FTP, Nginx.</li>
+            <li>Theme/Portfolio/Model 이미지 관리 시스템(다중 업로드, 이미지 리사이징·압축).</li>
+            <li>Django Unfold 기반 CMS 도입, Blue/Red 모델 CMS 분리, ModelGroup 모델 도입.</li>
+            <li>LINE 알림 시스템(고문·대표·이사 컨택 알림), 슬랙 웹훅 기반 에러 알림.</li>
+          </ul>
+        </article>
+
+        <article class="proj">
+          <div class="period">그 외</div>
+          <h3>라이트룸 구축 · CGV 프로모션 · AI'm · 그 외</h3>
+          <span class="role">인프라 · 백엔드 · QA</span>
+          <ul>
+            <li><strong>라이트룸 구축</strong> (2023.08–11) — 사진 작업실용 파일 공유 서버. AWS EC2 인프라 설계·비용 산정, Nginx·FTP·SSL, 접속자 통계 산출.</li>
+            <li><strong>CGV 프로모션 웹사이트</strong> (2024.10–11) — AWS EC2 오토스케일링, SSL 적용, Lambda 기반 자동 배포 파이프라인, 보안 설정·QA.</li>
+            <li><strong>AI'm</strong> (2023.11–12) — DB 모델링·백엔드 API, Swagger 문서화, 프로덕션 서버(FTP·SSL·Nginx) 세팅.</li>
+            <li><strong>컨택트 페이지 / 팬라이트 컨설팅</strong> — 카테고리 모델·통계 산출·CSV 추출, 서버 비용 산정·킥오프.</li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div class="wrap">
+      <div class="cta">함께 일해요 → <a href="mailto:sngmlnu@plus-ex.com">sngmlnu@plus-ex.com</a></div>
+      <div>© 2026 MinWoo Sung · Built with plain HTML &amp; hosted on GitHub Pages</div>
+    </div>
+  </footer>
+
+</body>
+</html>
