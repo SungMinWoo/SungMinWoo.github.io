@@ -44,17 +44,22 @@
     a { color: inherit; text-decoration: none; }
     ::selection { background: var(--accent); color: #fff; }
 
-    /* ---------- Background dots ---------- */
-    #bg-dots {
+    /* ---------- Background: Globe ---------- */
+    #bg-globe {
       position: fixed;
-      inset: 0;
-      width: 100%; height: 100%;
+      top: 50%;
+      right: 5vw;
+      transform: translateY(-50%);
+      width: min(520px, 42vw);
+      height: min(520px, 42vw);
       z-index: 0;
       pointer-events: none;
-      opacity: 0.9;
+      display: block;
+    }
+    @media (max-width: 560px) {
+      #bg-globe { display: none; }
     }
     .nav, section, footer { position: relative; z-index: 1; }
-
 
     /* ---------- Nav ---------- */
     .nav {
@@ -725,7 +730,7 @@
 </head>
 <body>
 
-  <canvas id="bg-dots" aria-hidden="true"></canvas>
+  <canvas id="bg-globe" aria-hidden="true"></canvas>
 
   <nav class="nav">
     <div class="logo">MinWoo<span>.</span>Sung</div>
@@ -734,6 +739,7 @@
       <li><a href="#stack">Stack</a></li>
       <li><a href="#work">Work</a></li>
       <li><a href="#opensource">OSS</a></li>
+      <li><a href="./career.html">Career</a></li>
     </ul>
   </nav>
 
@@ -1392,70 +1398,141 @@
       });
     })();
 
-    /* ---------- Background: S ribbon ---------- */
-    (function() {
-      const canvas = document.getElementById('bg-dots');
+    /* ---------- Background: cobe globe (module script below) ---------- */
+  </script>
+
+  <script type="module">
+    // ---------- Background: Globe ----------
+    (async function initGlobe() {
+      const canvas = document.getElementById('bg-globe');
       if (!canvas) return;
-      const ctx = canvas.getContext('2d');
+
+      // Load cobe from CDN (fallback chain)
+      let createGlobe = null;
+      const sources = [
+        'https://cdn.jsdelivr.net/npm/cobe@0.6.4/+esm',
+        'https://esm.sh/cobe@0.6.4',
+      ];
+      for (const url of sources) {
+        try {
+          const mod = await import(url);
+          const fn = mod.default || mod;
+          if (typeof fn === 'function') { createGlobe = fn; break; }
+        } catch (e) { console.warn('cobe load fail:', url, e); }
+      }
+      if (!createGlobe) { console.error('cobe unavailable'); return; }
+
       const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
 
-      const angle = 30 * Math.PI / 180;
-      const cosA = Math.cos(angle);
-      const sinA = Math.sin(angle);
-      let time = 0;
-      let w = 0, h = 0, cx = 0, cy = 0;
-      let sLen = 0, sAmp = 0;
+      // 진출 국가 마커 (한국 = 본거지, 강조)
+      const MARKERS = [
+        [37.5665, 126.978, 0.11],   // KOREA (home)
+        [35.6762, 139.6503, 0.04],  // JAPAN
+        [39.9042, 116.4074, 0.04],  // CHINA
+        [22.3193, 114.1694, 0.035], // HONG KONG
+        [22.1987, 113.5439, 0.03],  // MACAU
+        [25.033, 121.5654, 0.035],  // TAIWAN
+        [47.8864, 106.9057, 0.03],  // MONGOLIA
+        [1.3521, 103.8198, 0.04],   // SINGAPORE
+        [3.139, 101.6869, 0.035],   // MALAYSIA
+        [13.7563, 100.5018, 0.035], // THAILAND
+        [-6.2088, 106.8456, 0.035], // INDONESIA
+        [14.5995, 120.9842, 0.035], // PHILIPPINES
+        [21.0285, 105.8544, 0.035], // VIETNAM
+        [11.5564, 104.9282, 0.03],  // CAMBODIA
+        [6.9271, 79.8612, 0.03],    // SRI LANKA
+        [51.1694, 71.4491, 0.03],   // KAZAKHSTAN
+        [31.7683, 35.2137, 0.03],   // ISRAEL
+        [35.1264, 33.4299, 0.028],  // CYPRUS
+        [24.7136, 46.6753, 0.035],  // SAUDI ARABIA
+        [24.4539, 54.3773, 0.035],  // UAE
+        [25.2854, 51.531, 0.03],    // QATAR
+        [26.0667, 50.5577, 0.028],  // BAHRAIN
+        [23.588, 58.3829, 0.03],    // OMAN
+        [51.5074, -0.1278, 0.045],  // UK
+        [48.8566, 2.3522, 0.04],    // FRANCE
+        [52.52, 13.405, 0.04],      // GERMANY
+        [41.9028, 12.4964, 0.04],   // ITALY
+        [50.8503, 4.3517, 0.03],    // BELGIUM
+        [52.3676, 4.9041, 0.035],   // NETHERLANDS
+        [46.9481, 7.4474, 0.03],    // SWITZERLAND
+        [47.5162, 14.5501, 0.03],   // AUSTRIA
+        [49.6117, 6.1319, 0.028],   // LUXEMBOURG
+        [53.3498, -6.2603, 0.03],   // IRELAND
+        [49.4657, -2.5853, 0.026],  // GUERNSEY
+        [64.1466, -21.9426, 0.028], // ICELAND
+        [59.9139, 10.7522, 0.03],   // NORWAY
+        [59.3293, 18.0686, 0.03],   // SWEDEN
+        [55.6761, 12.5683, 0.03],   // DENMARK
+        [60.1699, 24.9384, 0.03],   // FINLAND
+        [50.0755, 14.4378, 0.03],   // CZECH REPUBLIC
+        [47.4979, 19.0402, 0.03],   // HUNGARY
+        [52.2297, 21.0122, 0.03],   // POLAND
+        [44.4268, 26.1025, 0.028],  // ROMANIA
+        [42.7339, 25.4858, 0.028],  // BULGARIA
+        [37.9838, 23.7275, 0.03],   // GREECE
+        [46.0569, 14.5058, 0.026],  // SLOVENIA
+        [38.7223, -9.1393, 0.03],   // PORTUGAL
+        [56.1304, -106.3468, 0.045],// CANADA
+        [19.4326, -99.1332, 0.035], // MEXICO
+        [18.4655, -66.1057, 0.028], // PUERTO RICO
+        [18.3358, -64.8963, 0.026], // VIRGIN ISLANDS (US)
+        [-35.6751, -71.543, 0.03],  // CHILE
+        [4.711, -74.0721, 0.03],    // COLOMBIA
+        [-16.5, -68.15, 0.028],     // BOLIVIA
+        [-34.9011, -56.1645, 0.028],// URUGUAY
+        [10.4806, -66.9036, 0.028], // VENEZUELA
+        [-25.2744, 133.7751, 0.04], // AUSTRALIA
+        [-41.2865, 174.7762, 0.035],// NEW ZEALAND
+        [13.4443, 144.7937, 0.026], // GUAM
+        [-14.271, -170.1322, 0.026],// AMERICAN SAMOA
+        [15.185, 145.7467, 0.024],  // NORTHERN MARIANA IS.
+      ];
 
-      function resize() {
-        w = window.innerWidth;
-        h = window.innerHeight;
-        canvas.width = w * dpr;
-        canvas.height = h * dpr;
-        canvas.style.width = w + 'px';
-        canvas.style.height = h + 'px';
-        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-        cx = w / 2;
-        cy = h / 2;
-        sLen = Math.hypot(w, h) * 1.55;
-        sAmp = Math.min(w, h) * 0.30;
+      let phi = 0;
+      let globe = null;
+      let currentKey = '';
+
+      function setup() {
+        const rect = canvas.getBoundingClientRect();
+        const size = Math.round(rect.width);
+        if (size < 50) return;
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        const key = size + ':' + dpr;
+        if (key === currentKey) return;
+        currentKey = key;
+
+        if (globe) globe.destroy();
+
+        globe = createGlobe(canvas, {
+          devicePixelRatio: dpr,
+          width: size * dpr,
+          height: size * dpr,
+          phi: 0,
+          theta: 0.25,
+          dark: 1,
+          diffuse: 1.1,
+          mapSamples: 16000,
+          mapBrightness: 2.4,
+          baseColor: [0.35, 0.35, 0.38],
+          markerColor: [0.51, 0.863, 0.157],  // #82dc28
+          glowColor: [0.35, 0.18, 0.09],
+          markers: MARKERS.map(([lat, lng, s]) => ({ location: [lat, lng], size: s })),
+          onRender: (state) => {
+            state.phi = phi;
+            if (!reduce) phi += 0.0025;
+          },
+        });
       }
 
-      function draw() {
-        ctx.clearRect(0, 0, w, h);
-        time += reduce ? 0 : 0.005;
-
-        const step = 8;
-        const ribbonHalf = 132;  // 두께 2배
-        const ribbonStep = 8;
-
-        for (let u = -sLen / 2; u <= sLen / 2; u += step) {
-          const t = u / sLen;
-          const vCenter = sAmp * Math.sin(t * Math.PI * 2);
-          const endFade = Math.min(1, (0.5 - Math.abs(t)) * 4);
-          const flow = 0.35 + 0.65 * Math.sin(t * Math.PI * 6 - time * 1.4);
-          for (let dv = -ribbonHalf; dv <= ribbonHalf; dv += ribbonStep) {
-            const v = vCenter + dv;
-            const x = cx + u * cosA - v * sinA;
-            const y = cy + u * sinA + v * cosA;
-            if (x < -20 || x > w + 20 || y < -20 || y > h + 20) continue;
-            const norm = Math.abs(dv) / ribbonHalf;
-            const fade = 1 - norm * norm;
-            const a = 0.5 * fade * endFade * Math.max(0.1, flow);
-            ctx.beginPath();
-            ctx.arc(x, y, 1.4, 0, Math.PI * 2);
-            ctx.fillStyle = 'rgba(255, 90, 30, ' + a + ')';
-            ctx.fill();
-          }
-        }
-
-        if (!reduce) requestAnimationFrame(draw);
-      }
-
-      window.addEventListener('resize', resize);
-      resize();
-      draw();
+      setup();
+      let resizeTO;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTO);
+        resizeTO = setTimeout(setup, 200);
+      });
     })();
   </script>
+
 </body>
 </html>
