@@ -782,12 +782,12 @@
       </div>
       <div class="about-grid">
         <p class="about-lead reveal">
-          플러스엑스에서 <span class="kr hl-em">약 3년 9개월</span>,
+          플러스엑스에서 <span class="kr hl-em">2022.12 ~ 2026.08, 약 3년 9개월</span>간
           <span class="kr">도메인을 이해하고, 구조를 설계하고, 문제를 정의해 풀어내는 일</span>을 반복해 왔습니다.
         </p>
         <div class="about-body reveal">
-          <p>참여한 프로젝트 대부분에서 <strong>도메인 분석과 DB 스키마 설계</strong>를 직접 맡았습니다. 요구사항이 달라지거나 새로운 제약이 생겼을 때 구조를 다시 잡는 일에 가장 많은 시간을 쓰고, 그 위에 Django/DRF 서버와 검색엔진을 붙여 나갑니다.</p>
-          <p>ComfyUI 기반 AI 이미지 생성 서비스에서는 백엔드 개발과 GPU 서버 배포·API 연동을 담당했고, 최근에는 <strong>KB 자산운용 통합 개편</strong>에서 PL로 KB 내부 DB·외부 데이터 소스 통합과 검색 엔진 설계를 이끌고 있습니다.</p>
+          <p>참여한 프로젝트 대부분에서 <strong>도메인 분석과 DB 스키마 설계</strong>를 직접 맡았습니다. 요구사항이 달라지거나 새로운 제약이 생겼을 때 구조를 다시 잡는 일에 가장 많은 시간을 쓰고, 그 위에 Django/DRF 서버와 검색엔진을 붙여 나갔습니다.</p>
+          <p>ComfyUI 기반 AI 이미지 생성 서비스에서는 백엔드 개발과 GPU 서버 배포·API 연동을 담당했고, 가장 최근에는 <strong>KB 자산운용 통합 개편</strong>에서 PL로 KB 내부 DB·외부 데이터 소스 통합과 검색 엔진 설계를 이끌었습니다.</p>
           <p>인프라와 배포도 서비스가 굴러가는 선까지는 직접 다뤄왔지만, 그보다 <strong>새로운 도메인을 빠르게 이해하고 문제를 다시 정의해 구조로 풀어내는 감각</strong>을 강점으로 생각합니다.</p>
           <p>참여한 팀에서는 <strong>GitHub PR 기반 코드 리뷰와 팀 QA</strong>를 기본으로, 설계를 나눠 잡고 구현을 위임하며 프로젝트를 진행해 왔습니다.</p>
         </div>
@@ -944,6 +944,7 @@
                   <span class="chip">Celery</span>
                   <span class="chip k">OpenSearch</span>
                   <span class="chip">폐쇄망 AWS</span>
+                  <span class="chip k">Docker</span>
                   <span class="chip k">Podman</span>
                   <span class="chip">Nginx</span>
                   <span class="chip">GitHub Actions</span>
@@ -951,8 +952,8 @@
                 </div>
                 <a class="ext-link" href="https://kbam.co.kr" target="_blank" rel="noopener">kbam.co.kr</a>
                 <ul>
-                  <li><strong>다중 데이터 소스 통합 · 방향 전환 대응</strong> — 솔트룩스·FnGuide ZeroIn·KB 내부 DB 등 서로 다른 데이터 소스의 스키마 분석·통합 설계로 시작. 프로젝트 중반 클라이언트가 <strong>KB 내부 DB(KBstarM) 단일 소스로 방향을 바꾸면서</strong>, KBstarM 스키마 기준으로 다시 정리해 대응한 케이스.</li>
-                  <li><strong>폐쇄망 AWS 인프라 · Podman 무중단 배포</strong> — 완전 폐쇄망에서 폐쇄망 AWS 환경으로 전환된 조건. 매니지드 컨테이너 사용이 어려워 <strong>Docker → RedHat 기반 Podman으로 이관</strong>하고, Nginx 기반 Blue/Green 무중단 배포를 직접 구현. 폐쇄망 배포 직전 단계까지 진행.</li>
+                  <li><strong>다중 데이터 소스 통합 · 방향 전환 대응</strong> — 제로인·FnGuide·KB 내부 DB 등 서로 다른 데이터 소스의 스키마 분석·통합 설계로 시작. 프로젝트 중반 클라이언트가 <strong>KB 내부 DB(KBstarM) 단일 소스로 방향을 바꾸면서</strong>, KBstarM 스키마 기준으로 다시 정리해 대응한 케이스.</li>
+                  <li><strong>폐쇄망 AWS 인프라 · 컨테이너 런타임 재선정</strong> — 완전 폐쇄망 조건에서 매니지드 컨테이너 사용이 어려워 <strong>RedHat 기반 Podman으로 이관</strong>했고, 이후 환경이 폐쇄망 AWS로 정리되며 <strong>Docker로 되돌림</strong>. 런타임이 두 차례 바뀌는 동안에도 Nginx 기반 Blue/Green 무중단 배포와 GitHub Actions CI/CD는 유지되도록 구성.</li>
                   <li><strong>시계열 데이터 캐싱 최적화</strong> — 수익률·구성종목 비율·가격 등 시계열 데이터가 리스트·상세 전 구간에서 반복 조회돼 응답이 <span class="metric">1~2s</span>까지 지연. <strong>전날 종가 기준으로 자주 조회되는 데이터를 취합해 Redis에 캐시</strong> → 응답 <span class="metric">0.2s</span> 수준(약 80% 개선).</li>
                   <li><strong>통합 검색 엔진 · ETL 파이프라인 연결</strong> — ETF·Fund·컨텐츠·공지사항까지 한 검색으로 다루기 위해 LIKE 검색으로는 사용성이 나오지 않음. <strong>ETL 업체 처리 완료 시점에 스케줄러로 OpenSearch에 데이터 반영 + 캐시 처리</strong>까지 파이프라인 구축.</li>
                   <li><strong>키워드 기반 사이트 설계 · 추천 시스템 (자발 제안)</strong> — 사이트 전체를 <strong>키워드 중심으로 움직이도록 스스로 제안·설계</strong>. 상품·컨텐츠에 키워드를 붙여 상품 진입 시 연관 컨텐츠 자동 추천, 유저가 본 상품 키워드를 정수 체계로 DB에 누적해 유사 상품을 추천하는 구조. 설계·리뷰는 본인이 담당하고 <strong>실 구현은 후임 개발자에게 위임</strong>.</li>
@@ -1039,7 +1040,7 @@
       <!-- GenAI -->
       <article class="proj reveal">
         <button class="proj-head" aria-expanded="false">
-          <div class="proj-period">2024.04 — Now</div>
+          <div class="proj-period">2024.04 — 2026.08</div>
           <div class="proj-title">
             PlusX GenAI
             <span class="short">사내 자체 AI 이미지 생성 플랫폼 (누적 약 <strong style="color:var(--accent);">5,000+장</strong> 생성). <strong style="color:var(--accent);">JSON 스키마를 DB로 이전</strong>해 배포 없이 신규 모델 등록.</span>
@@ -1350,7 +1351,7 @@
       <!-- AI 기반 인터뷰 관리 플랫폼 -->
       <article class="proj reveal">
         <button class="proj-head" aria-expanded="false">
-          <div class="proj-period">2026.04 — 진행 중 · 사내 시연 완료</div>
+          <div class="proj-period">2026.04 — 2026.08 · 사내 시연 완료</div>
           <div class="proj-title">
             <span class="kr">AI 기반 인터뷰 관리 플랫폼</span>
             <span class="short">회사의 반복되는 클라이언트 인터뷰 업무를 발견하고, 요청 없이 개인 프로젝트로 구축. 인터뷰 설계 → 배포 → 수집 → AI 취합 → 디자인 시안 생성까지 전 과정을 자동화. 프로젝트당 <strong style="color:var(--accent);">2~3주 → 3~4일</strong> 수준 단축 검증.</span>

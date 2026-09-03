@@ -302,7 +302,7 @@
     <!-- 1. 자기 소개 -->
     <section id="intro">
       <div class="sec-head"><span class="num">01</span><h2><span class="kr">자기 소개</span></h2></div>
-      <p class="body">플러스엑스에서 약 3년 9개월간 백엔드 개발자로 근무해 왔습니다. 참여한 프로젝트 대부분에서 <strong>도메인 분석과 DB 스키마 설계</strong>를 직접 맡았고, 요구사항이 바뀌거나 새로운 제약이 생겼을 때 구조를 다시 잡는 지점에 가장 많은 시간을 씁니다. 그 위에 Django/DRF 서버와 검색엔진, 데이터 파이프라인을 조립하는 방식으로 서비스를 만들어 왔습니다.</p>
+      <p class="body">플러스엑스에서 2022년 12월부터 2026년 8월까지 약 3년 9개월간 백엔드 개발자로 근무했습니다. 참여한 프로젝트 대부분에서 <strong>도메인 분석과 DB 스키마 설계</strong>를 직접 맡았고, 요구사항이 바뀌거나 새로운 제약이 생겼을 때 구조를 다시 잡는 지점에 가장 많은 시간을 썼습니다. 그 위에 Django/DRF 서버와 검색엔진, 데이터 파이프라인을 조립하는 방식으로 서비스를 만들어 왔습니다.</p>
       <p class="body">KB 자산운용 통합 개편에서는 PL로 KB 내부 DB&middot;외부 데이터 소스 통합과 검색 엔진 설계를 이끌었고, ComfyUI 기반 AI 이미지 생성 서비스에서는 백엔드와 GPU 서버 배포&middot;API 연동을 담당했습니다. 인프라와 배포도 서비스가 굴러가는 선까지는 직접 진행해 왔지만, 저의 강점은 <strong>새로운 도메인을 빠르게 이해하고 문제를 다시 정의해 구조로 풀어내는 감각</strong>에 있다고 생각합니다.</p>
       <p class="body">AI가 코드를 대신 쓰는 시대일수록, <span class="hl">문제를 정의하고 &middot; 구조를 설계하고 &middot; 유연하게 대응하는 감각</span>이 개발자에게 필요하다고 믿습니다.</p>
     </section>
@@ -314,7 +314,7 @@
         <table>
           <thead><tr><th>기간</th><th>회사</th><th>직무</th><th>재직기간</th></tr></thead>
           <tbody>
-            <tr><td>2022.12 ~ 현재</td><td><strong>플러스엑스(주)</strong></td><td>백엔드 개발자</td><td>약 3년 9개월</td></tr>
+            <tr><td>2022.12 ~ 2026.08</td><td><strong>플러스엑스(주)</strong></td><td>백엔드 개발자</td><td>약 3년 9개월</td></tr>
             <tr><td>2021.09 ~ 2021.12</td><td>(주)올빅뎃</td><td>인턴</td><td>4개월</td></tr>
           </tbody>
         </table>
@@ -352,7 +352,7 @@
           <h3>Infrastructure / DevOps</h3>
           <ul>
             <li>AWS (EC2, S3, Lightsail RDS, Lambda), 폐쇄망 AWS</li>
-            <li>Docker, Docker Compose, Podman (RedHat 기반)</li>
+            <li>Docker, Docker Compose (Podman 이관&middot;복귀 경험)</li>
             <li>Nginx (Blue/Green 무중단 배포)</li>
             <li>GitHub Actions CI/CD</li>
           </ul>
@@ -396,13 +396,13 @@
           <p class="overview">기존 kbam.co.kr과 riseetf.co.kr을 하나로 통합한 자산운용사 홈페이지&middot;어드민 개편. 솔트룩스 협업. 기존 사이트 기준 하루 약 2,000명 접속 규모.</p>
           <h4>주요 성과</h4>
           <ul class="ach">
-            <li><strong>다중 데이터 소스 통합 &middot; 방향 전환 대응</strong> — 솔트룩스&middot;FnGuide ZeroIn&middot;KB 내부 DB 등 서로 다른 데이터 소스의 스키마 분석&middot;통합 설계로 시작. 프로젝트 중반 클라이언트가 KB 내부 DB(KBstarM) 단일 소스로 방향을 바꾸면서, KBstarM 스키마 기준으로 다시 정리해 대응.</li>
-            <li><strong>폐쇄망 AWS 인프라 &middot; Podman 무중단 배포</strong> — 완전 폐쇄망에서 폐쇄망 AWS 환경으로 전환된 조건. 매니지드 컨테이너 사용이 어려워 Docker &rarr; RedHat 기반 Podman으로 이관, Nginx 기반 Blue/Green 무중단 배포를 직접 구현.</li>
+            <li><strong>다중 데이터 소스 통합 &middot; 방향 전환 대응</strong> — 제로인&middot;FnGuide&middot;KB 내부 DB 등 서로 다른 데이터 소스의 스키마 분석&middot;통합 설계로 시작. 프로젝트 중반 클라이언트가 KB 내부 DB(KBstarM) 단일 소스로 방향을 바꾸면서, KBstarM 스키마 기준으로 다시 정리해 대응.</li>
+            <li><strong>폐쇄망 AWS 인프라 &middot; 컨테이너 런타임 재선정</strong> — 완전 폐쇄망 조건에서 매니지드 컨테이너 사용이 어려워 RedHat 기반 Podman으로 이관해 배포 구조를 구성. 이후 환경이 폐쇄망 AWS로 정리되며 Docker 배포가 가능해져 Docker로 되돌림. 런타임이 두 차례 바뀌는 동안에도 Nginx 기반 Blue/Green 무중단 배포와 GitHub Actions CI/CD는 유지되도록 구성.</li>
             <li><strong>시계열 데이터 캐싱 최적화</strong> — 수익률&middot;구성종목 비율&middot;가격 등 시계열 데이터가 리스트&middot;상세 전 구간에서 반복 조회돼 응답이 1~2s까지 지연. 전날 종가 기준으로 자주 조회되는 데이터를 취합해 Redis에 캐시 &rarr; 응답 0.2s 수준 (약 80% 개선).</li>
             <li><strong>통합 검색 엔진 &middot; ETL 파이프라인 연결</strong> — ETF &middot; Fund &middot; 컨텐츠 &middot; 공지사항까지 한 검색으로 다루기 위해 LIKE 검색의 한계를 넘어, ETL 업체 처리 완료 시점에 스케줄러로 OpenSearch에 데이터 반영 + 캐시 처리까지 파이프라인 구축.</li>
             <li><strong>키워드 기반 사이트 설계 &middot; 추천 시스템 (자발 제안)</strong> — 사이트 전체를 키워드 중심으로 움직이도록 스스로 제안&middot;설계. 상품&middot;컨텐츠에 키워드를 붙여 상품 진입 시 연관 컨텐츠 자동 추천, 유저가 본 상품 키워드를 정수 체계로 DB에 누적해 유사 상품을 추천하는 구조. 설계&middot;리뷰는 본인이 담당하고 실 구현은 후임 개발자에게 위임.</li>
           </ul>
-          <div class="tags"><span>Django</span><span>DRF</span><span>PostgreSQL</span><span>Redis</span><span>Celery</span><span>OpenSearch</span><span>폐쇄망 AWS</span><span>Podman</span><span>Nginx</span><span>GitHub Actions</span><span>Blue/Green</span></div>
+          <div class="tags"><span>Django</span><span>DRF</span><span>PostgreSQL</span><span>Redis</span><span>Celery</span><span>OpenSearch</span><span>폐쇄망 AWS</span><span>Docker</span><span>Podman</span><span>Nginx</span><span>GitHub Actions</span><span>Blue/Green</span></div>
         </div>
       </article>
 
@@ -441,7 +441,7 @@
           <span class="idx">PROJECT 03</span>
           <h3>PlusX GenAI — 사내 AI 이미지 생성 플랫폼</h3>
           <div class="proj-meta">
-            <span><span class="k">기간</span>2024.04 ~ 현재</span>
+            <span><span class="k">기간</span>2024.04 ~ 2026.08</span>
             <span><span class="k">역할</span>Backend &middot; Infra (단독)</span>
           </div>
         </div>
