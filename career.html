@@ -331,7 +331,7 @@
         <li><strong>성능 최적화</strong> — 자산운용 통합검색에서 시계열 데이터 캐싱 레이어 도입, 응답 1~2s &rarr; 0.2s (약 80% 개선).</li>
         <li><strong>검색 엔진 설계</strong> — Elasticsearch/OpenSearch 기반 통합검색 &middot; 동의어 사전 &middot; 자동완성 &middot; 오타 교정 &middot; 검색어 추천.</li>
         <li><strong>AI 이미지 파이프라인</strong> — ComfyUI &middot; GPU 서버 배포 &middot; 멀티모델(SD 3.5 / Flux / Kontext) 적용 경험.</li>
-        <li><strong>자율 제안 &middot; 실행</strong> — 프로젝트 요구사항이 아니더라도 필요한 개선을 스스로 제안&middot;구현. (자산운용 키워드 기반 추천 &middot; Elasticsearch 도입, Samsung GenI 잔여 이미지 정리 스케줄러, 그룹웨어 SSO 도입 등)</li>
+        <li><strong>자율 제안 &middot; 실행</strong> — 프로젝트 요구사항이 아니더라도 필요한 개선을 스스로 제안&middot;구현. (자산운용 키워드 기반 추천 &middot; Elasticsearch 도입, 삼성 프로젝트 잔여 이미지 정리 스케줄러, 그룹웨어 SSO 도입 등)</li>
         <li><strong>협업 방식</strong> — GitHub PR 기반 코드 리뷰와 팀 QA를 기본으로, 설계를 나눠 잡고 구현을 위임하며 프로젝트를 진행.</li>
       </ul>
     </section>
@@ -396,7 +396,7 @@
           <p class="overview">기존 kbam.co.kr과 riseetf.co.kr을 하나로 통합한 자산운용사 홈페이지&middot;어드민 개편. 솔트룩스 협업. 기존 사이트 기준 하루 약 2,000명 접속 규모.</p>
           <h4>주요 성과</h4>
           <ul class="ach">
-            <li><strong>다중 데이터 소스 통합 &middot; 방향 전환 대응</strong> — 제로인&middot;FnGuide&middot;KB 내부 DB 등 서로 다른 데이터 소스의 스키마 분석&middot;통합 설계로 시작. 프로젝트 중반 클라이언트가 KB 내부 DB(KBstarM) 단일 소스로 방향을 바꾸면서, KBstarM 스키마 기준으로 다시 정리해 대응.</li>
+            <li><strong>다중 데이터 소스 통합 &middot; 방향 전환 대응</strong> — 제로인&middot;FnGuide&middot;KB 내부 DB 등 서로 다른 데이터 소스의 스키마 분석&middot;통합 설계로 시작. 프로젝트 중반 클라이언트가 KB 내부 DB 단일 소스로 방향을 바꾸면서, 해당 DB 스키마 기준으로 다시 정리해 대응.</li>
             <li><strong>폐쇄망 AWS 인프라 &middot; 컨테이너 런타임 재선정</strong> — 완전 폐쇄망 조건에서 매니지드 컨테이너 사용이 어려워 RedHat 기반 Podman으로 이관해 배포 구조를 구성. 이후 환경이 폐쇄망 AWS로 정리되며 Docker 배포가 가능해져 Docker로 되돌림. 런타임이 두 차례 바뀌는 동안에도 Nginx 기반 Blue/Green 무중단 배포와 GitHub Actions CI/CD는 유지되도록 구성.</li>
             <li><strong>시계열 데이터 캐싱 최적화</strong> — 수익률&middot;구성종목 비율&middot;가격 등 시계열 데이터가 리스트&middot;상세 전 구간에서 반복 조회돼 응답이 1~2s까지 지연. 전날 종가 기준으로 자주 조회되는 데이터를 취합해 Redis에 캐시 &rarr; 응답 0.2s 수준 (약 80% 개선).</li>
             <li><strong>통합 검색 엔진 &middot; ETL 파이프라인 연결</strong> — ETF &middot; Fund &middot; 컨텐츠 &middot; 공지사항까지 한 검색으로 다루기 위해 LIKE 검색의 한계를 넘어, ETL 업체 처리 완료 시점에 스케줄러로 OpenSearch에 데이터 반영 + 캐시 처리까지 파이프라인 구축.</li>
@@ -406,11 +406,11 @@
         </div>
       </article>
 
-      <!-- 5-2 Samsung GenI -->
+      <!-- 5-2 삼성 디자인 R&D 센터 -->
       <article class="proj">
         <div class="proj-head">
           <span class="idx">PROJECT 02</span>
-          <h3>Samsung GenI — 삼성 디자인 R&amp;D 센터 AI 이미지 생성 서비스</h3>
+          <h3>삼성 디자인 R&amp;D 센터 — 사내 AI 이미지 생성 서비스</h3>
           <div class="proj-meta">
             <span><span class="k">기간</span>2025.03 ~ 2025.12 (1&middot;2&middot;3차 전 계약 참여)</span>
             <span><span class="k">역할</span>Backend — JSON 스키마 추상화 &middot; API</span>
@@ -449,9 +449,9 @@
           <p class="overview">사내 자체 AI 이미지 생성 플랫폼. 누적 약 5,000+장 생성.</p>
           <h4>주요 성과</h4>
           <ul class="ach">
-            <li><strong>JSON 스키마를 DB로 이전 (Samsung GenI 개선안)</strong>
+            <li><strong>JSON 스키마를 DB로 이전 (앞선 삼성 프로젝트 개선안)</strong>
               <ul class="sub">
-                <li><b>문제</b> — 삼성 GenI의 JSON 스키마 추상화 방향은 옳았지만, 스키마가 파일에 있어 모델&middot;파라미터 하나 바꾸려면 배포가 필요했고 비개발자가 손댈 수 없었음.</li>
+                <li><b>문제</b> — 앞선 삼성 프로젝트의 JSON 스키마 추상화 방향은 옳았지만, 스키마가 파일에 있어 모델&middot;파라미터 하나 바꾸려면 배포가 필요했고 비개발자가 손댈 수 없었음.</li>
                 <li><b>해결</b> — 스키마 자체를 DB로 이전. 모델 하나당 한 row에 요청 스키마와 UI 스키마를 함께 저장해 워크플로우와 UI가 어긋나지 않도록 구성. UI 컴포넌트는 별도 모델로 카탈로그화해 재사용, 모델별 활성/비활성은 데이터 스위치로 제어.</li>
                 <li><b>성과</b> — 신규 모델&middot;기능이 어드민에서 row 추가만으로 즉시 반영. Sagemaker &rarr; Flux.1 dev &rarr; Fal AI 모델 교체를 배포 없이 진행.</li>
               </ul>

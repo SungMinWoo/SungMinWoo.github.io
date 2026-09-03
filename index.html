@@ -952,7 +952,7 @@
                 </div>
                 <a class="ext-link" href="https://kbam.co.kr" target="_blank" rel="noopener">kbam.co.kr</a>
                 <ul>
-                  <li><strong>다중 데이터 소스 통합 · 방향 전환 대응</strong> — 제로인·FnGuide·KB 내부 DB 등 서로 다른 데이터 소스의 스키마 분석·통합 설계로 시작. 프로젝트 중반 클라이언트가 <strong>KB 내부 DB(KBstarM) 단일 소스로 방향을 바꾸면서</strong>, KBstarM 스키마 기준으로 다시 정리해 대응한 케이스.</li>
+                  <li><strong>다중 데이터 소스 통합 · 방향 전환 대응</strong> — 제로인·FnGuide·KB 내부 DB 등 서로 다른 데이터 소스의 스키마 분석·통합 설계로 시작. 프로젝트 중반 클라이언트가 <strong>KB 내부 DB 단일 소스로 방향을 바꾸면서</strong>, 해당 DB 스키마 기준으로 다시 정리해 대응한 케이스.</li>
                   <li><strong>폐쇄망 AWS 인프라 · 컨테이너 런타임 재선정</strong> — 완전 폐쇄망 조건에서 매니지드 컨테이너 사용이 어려워 <strong>RedHat 기반 Podman으로 이관</strong>했고, 이후 환경이 폐쇄망 AWS로 정리되며 <strong>Docker로 되돌림</strong>. 런타임이 두 차례 바뀌는 동안에도 Nginx 기반 Blue/Green 무중단 배포와 GitHub Actions CI/CD는 유지되도록 구성.</li>
                   <li><strong>시계열 데이터 캐싱 최적화</strong> — 수익률·구성종목 비율·가격 등 시계열 데이터가 리스트·상세 전 구간에서 반복 조회돼 응답이 <span class="metric">1~2s</span>까지 지연. <strong>전날 종가 기준으로 자주 조회되는 데이터를 취합해 Redis에 캐시</strong> → 응답 <span class="metric">0.2s</span> 수준(약 80% 개선).</li>
                   <li><strong>통합 검색 엔진 · ETL 파이프라인 연결</strong> — ETF·Fund·컨텐츠·공지사항까지 한 검색으로 다루기 위해 LIKE 검색으로는 사용성이 나오지 않음. <strong>ETL 업체 처리 완료 시점에 스케줄러로 OpenSearch에 데이터 반영 + 캐시 처리</strong>까지 파이프라인 구축.</li>
@@ -964,12 +964,12 @@
         </div>
       </article>
 
-      <!-- 삼성 GenI -->
+      <!-- 삼성 디자인 R&D 센터 -->
       <article class="proj reveal">
         <button class="proj-head" aria-expanded="false">
           <div class="proj-period">2025.03 — 2025.12</div>
           <div class="proj-title">
-            Samsung GenI
+            삼성 디자인 R&amp;D 센터
             <span class="short">삼성 <strong style="color:var(--accent);">디자인 R&amp;D 센터</strong> 디자이너 대상 사내 AI 이미지 생성 서비스 (약 <strong style="color:var(--accent);">300~500명</strong> 사용, 해외 디자이너 포함). <strong style="color:var(--accent);">이미지 생성 파라미터를 JSON 스키마로 추상화</strong>, 1·2·3차 전 계약 참여.</span>
           </div>
           <span class="proj-toggle" aria-hidden="true">+</span>
@@ -1079,7 +1079,7 @@
 
                   <div class="ps">
                     <div class="ps-label">Problem</div>
-                    <div class="ps-body">삼성 GenI에서 잡은 <strong>JSON 스키마 추상화 방향은 옳았지만</strong>, 스키마가 파일에 있어 <strong>모델·파라미터 하나 바꾸려면 배포가 필요</strong>했고, <strong>비개발자가 손댈 수 없었습니다</strong>. 모델 교체나 장애 대응도 모두 개발자가 직접 진행해야 했습니다.</div>
+                    <div class="ps-body">앞선 삼성 프로젝트에서 잡은 <strong>JSON 스키마 추상화 방향은 옳았지만</strong>, 스키마가 파일에 있어 <strong>모델·파라미터 하나 바꾸려면 배포가 필요</strong>했고, <strong>비개발자가 손댈 수 없었습니다</strong>. 모델 교체나 장애 대응도 모두 개발자가 직접 진행해야 했습니다.</div>
 
                     <div class="ps-label">Solution</div>
                     <div class="ps-body">스키마 자체를 <strong>DB로 이전</strong>. 모델 하나당 한 row에 <strong>요청 스키마와 UI 스키마를 함께 저장</strong>해 워크플로우와 UI가 절대 어긋나지 않게 만들었습니다. UI 컴포넌트는 별도 모델로 <strong>카탈로그화해 재사용</strong>, 모델별 활성/비활성은 데이터 스위치로 제어.</div>
