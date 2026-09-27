@@ -788,6 +788,7 @@
         <div class="about-body reveal">
           <p>참여한 프로젝트 대부분에서 <strong>도메인 분석과 DB 스키마 설계</strong>를 직접 맡았습니다. 요구사항이 달라지거나 새로운 제약이 생겼을 때 구조를 다시 잡는 일에 가장 많은 시간을 쓰고, 그 위에 Django/DRF 서버와 검색엔진을 붙여 나갔습니다.</p>
           <p>ComfyUI 기반 AI 이미지 생성 서비스에서는 백엔드 개발과 GPU 서버 배포·API 연동을 담당했고, 가장 최근에는 <strong>KB 자산운용 통합 개편</strong>에서 PL로 KB 내부 DB·외부 데이터 소스 통합과 검색 엔진 설계를 이끌었습니다.</p>
+          <p>현재는 KB자산운용 측 요청으로 오픈 직전 <strong>솔트룩스</strong> 소속으로 다시 합류해, 2026년 9월 정식 오픈을 함께 마무리하고 홈페이지 전반의 유지보수와 배포 자동화를 맡고 있습니다.</p>
           <p>인프라와 배포도 서비스가 굴러가는 선까지는 직접 다뤄왔지만, 그보다 <strong>새로운 도메인을 빠르게 이해하고 문제를 다시 정의해 구조로 풀어내는 감각</strong>을 강점으로 생각합니다.</p>
           <p>참여한 팀에서는 <strong>GitHub PR 기반 코드 리뷰와 팀 QA</strong>를 기본으로, 설계를 나눠 잡고 구현을 위임하며 프로젝트를 진행해 왔습니다.</p>
         </div>
@@ -833,7 +834,7 @@
         <div class="card" data-tilt>
           <span class="num">06 / Initiative</span>
           <h3><span class="kr">자율 제안 · 실행</span></h3>
-          <p>프로젝트의 요구사항이 아니더라도 필요한 개선은 스스로 제안하고 구현합니다. 사내 인터뷰 업무 전 과정을 자동화하는 <strong>AI 기반 인터뷰 관리 플랫폼</strong>을 개인 프로젝트로 구축해 사내 시연까지 완료했고, 자산운용 사이트의 키워드 기반 추천·Elasticsearch 도입, 그룹웨어 SSO 도입 등도 그 결과입니다.</p>
+          <p>프로젝트의 요구사항이 아니더라도 필요한 개선은 스스로 제안하고 구현합니다. 회사의 인터뷰 업무에서 병목을 보고 <strong>업무 외 시간에 개인 사이드 프로젝트로</strong> AI 기반 인터뷰 관리 플랫폼을 만들어 사내 배포까지 마쳤고, 자산운용 사이트의 키워드 기반 추천·Elasticsearch 도입, 그룹웨어 SSO 도입 등도 그 결과입니다.</p>
         </div>
       </div>
     </div>
@@ -918,7 +919,7 @@
       <!-- KB 자산운용 -->
       <article class="proj reveal">
         <button class="proj-head" aria-expanded="false">
-          <div class="proj-period">2026.01 — 2026.07 · 2026.09 런칭 예정</div>
+          <div class="proj-period">2026.01 — 2026.09 · 2026.09.21 정식 오픈</div>
           <div class="proj-title">
             KB <span class="kr">자산운용 통합 개편</span>
             <span class="short">기존 kbam.co.kr과 riseetf.co.kr을 하나로 통합. 기존 사이트 기준 <strong style="color:var(--accent);">하루 약 2,000명</strong> 접속 규모. PL로 도메인 설계·검색엔진·폐쇄망 인프라 리드.</span>
@@ -957,6 +958,7 @@
                   <li><strong>시계열 데이터 캐싱 최적화</strong> — 수익률·구성종목 비율·가격 등 시계열 데이터가 리스트·상세 전 구간에서 반복 조회돼 응답이 <span class="metric">1~2s</span>까지 지연. <strong>전날 종가 기준으로 자주 조회되는 데이터를 취합해 Redis에 캐시</strong> → 응답 <span class="metric">0.2s</span> 수준(약 80% 개선).</li>
                   <li><strong>통합 검색 엔진 · ETL 파이프라인 연결</strong> — ETF·Fund·컨텐츠·공지사항까지 한 검색으로 다루기 위해 LIKE 검색으로는 사용성이 나오지 않음. <strong>ETL 업체 처리 완료 시점에 스케줄러로 OpenSearch에 데이터 반영 + 캐시 처리</strong>까지 파이프라인 구축.</li>
                   <li><strong>키워드 기반 사이트 설계 · 추천 시스템 (자발 제안)</strong> — 사이트 전체를 <strong>키워드 중심으로 움직이도록 스스로 제안·설계</strong>. 상품·컨텐츠에 키워드를 붙여 상품 진입 시 연관 컨텐츠 자동 추천, 유저가 본 상품 키워드를 정수 체계로 DB에 누적해 유사 상품을 추천하는 구조. 설계·리뷰는 본인이 담당하고 <strong>실 구현은 후임 개발자에게 위임</strong>.</li>
+                  <li><strong>고객사 요청으로 오픈 직전 재투입 · 전환·오픈 참여</strong> — 플러스엑스 퇴사 후 <strong>KB자산운용 측 요청으로 솔트룩스 소속으로 다시 합류</strong>. 9월 19일 새벽 DNS IP 전환과 종합 테스트를 거쳐 <strong>9월 21일 정식 오픈</strong>까지 함께 진행했고, 오픈 이후 홈페이지 유지보수와 배포 자동화를 맡고 있음.</li>
                 </ul>
               </div>
             </div>
@@ -1053,7 +1055,7 @@
               <div class="proj-role">
                 <strong>Role</strong>
                 Backend · Infra<br/>
-                (Solo)
+                (단독)
               </div>
               <div>
                 <div class="proj-stack">
@@ -1239,6 +1241,7 @@
               <div class="proj-role">
                 <strong>Role</strong>
                 Backend · Infra<br/>
+                (선임 개발자와 분담)<br/>
                 <br/>
                 <strong>Team</strong>
                 BE ×2 / FE ×1
@@ -1351,10 +1354,10 @@
       <!-- AI 기반 인터뷰 관리 플랫폼 -->
       <article class="proj reveal">
         <button class="proj-head" aria-expanded="false">
-          <div class="proj-period">2026.04 — 2026.08 · 사내 시연 완료</div>
+          <div class="proj-period">2026.04 — 2026.08 · 개인 사이드 프로젝트 (업무 외)</div>
           <div class="proj-title">
             <span class="kr">AI 기반 인터뷰 관리 플랫폼</span>
-            <span class="short">회사의 반복되는 클라이언트 인터뷰 업무를 발견하고, 요청 없이 개인 프로젝트로 구축. 인터뷰 설계 → 배포 → 수집 → AI 취합 → 디자인 시안 생성까지 전 과정을 자동화. 프로젝트당 <strong style="color:var(--accent);">2~3주 → 3~4일</strong> 수준 단축 검증.</span>
+            <span class="short">재직 중 회사의 반복되는 클라이언트 인터뷰 업무를 보고, <strong>업무 외 시간에 집에서 개인 사이드 프로젝트로</strong> 구축. 인터뷰 설계 → 배포 → 수집 → AI 취합 → 디자인 시안 생성까지 전 과정을 자동화. 프로젝트당 <strong style="color:var(--accent);">2~3주 → 3~4일</strong> 수준 단축 예상.</span>
           </div>
           <span class="proj-toggle" aria-hidden="true">+</span>
         </button>
@@ -1364,10 +1367,11 @@
               <div class="proj-role">
                 <strong>Role</strong>
                 기획 · 설계 · 개발 단독<br/>
-                (AI 코딩 에이전트 협업)<br/>
+                (개인 사이드 프로젝트 · AI 코딩 에이전트 협업)<br/>
                 <br/>
                 <strong>Status</strong>
-                사내 시연 완료 · 배포 준비 중
+                사내 배포 · 그룹웨어 SSO 연동 완료<br/>
+                퇴사 시 코드 인계
               </div>
               <div>
                 <div class="proj-stack">
@@ -1385,11 +1389,11 @@
                   <span class="chip">Nginx</span>
                 </div>
                 <ul>
-                  <li><strong>병목 발견 → 자발 구축</strong> — UXUI 프로젝트 선행 단계인 클라이언트 임직원 인터뷰가 엑셀 질문지·개별 이메일·수기 취합으로 반복되는 병목을 발견하고, 회사 요청 없이 직접 기획·구축.</li>
+                  <li><strong>병목 발견 → 자발 구축</strong> — UXUI 프로젝트 선행 단계인 클라이언트 임직원 인터뷰가 엑셀 질문지·개별 이메일·수기 취합으로 반복되는 병목을 발견하고, 회사 업무가 아닌 개인 사이드 프로젝트로 퇴근 후 개인 시간에 직접 기획·구축. 이후 사내 배포와 그룹웨어 SSO 연동까지 마치고 퇴사 시 코드를 회사에 인계.</li>
                   <li><strong>AI + 사람 협업 구조</strong> — AI가 사이트 분석·질문지 생성·응답 취합을 수행하되, 산출물을 사람이 검토·확정해야 다음 단계로 넘어가는 단계별 잠금 구조로 설계.</li>
                   <li><strong>멀티모델 추상화</strong> — Claude / Gemini를 동일 인터페이스로 추상화해 분석 단계마다 모델 선택·교체 가능. LLM 응답 불안정성은 JSON 추출·형식 검증·기본값 처리 레이어로 대응.</li>
                   <li><strong>디자인 시안까지 자동화</strong> — 취합 결과로 디자인 브리프·규격서를 생성하고 Google Stitch와 연동해 1차 디자인 시안까지 자동 생성.</li>
-                  <li><strong>AI Native 개발 방식</strong> — 설계·리뷰는 직접, 구현은 AI에 위임하는 방식으로 8개 서비스 풀스택을 본업과 병행하며 1개월 만에 단독 완성.</li>
+                  <li><strong>AI Native 개발 방식</strong> — 설계·리뷰는 직접, 구현은 AI에 위임하는 방식으로 8개 서비스 풀스택을 퇴근 후 개인 시간에 1개월 만에 단독 완성.</li>
                 </ul>
               </div>
             </div>
