@@ -128,29 +128,6 @@
     .hero-name .kr { font-family: var(--font-sans); font-weight: 700; }
     .hero-name .em { color: var(--accent); font-weight: 400; margin: 0 4px; }
 
-    .hero-quote {
-      font-family: var(--font-display);
-      font-size: clamp(22px, 3vw, 36px);
-      line-height: 1.4;
-      font-weight: 400;
-      color: var(--text);
-      max-width: 820px;
-      margin-bottom: 40px;
-      letter-spacing: -0.02em;
-    }
-    .hero-quote .kr { font-family: var(--font-sans); font-weight: 500; }
-    .hero-quote .hl {
-      color: var(--accent);
-      font-style: italic;
-      font-family: var(--font-display);
-      font-weight: 500;
-    }
-    .hero-quote .quote-mark {
-      color: var(--accent);
-      font-family: var(--font-display);
-      font-weight: 500;
-    }
-
     .hero .tagline {
       font-size: clamp(15px, 1.6vw, 18px);
       color: var(--text-2);
@@ -761,14 +738,9 @@
       <h1 class="hero-name reveal">
         <span class="kr">성민우</span> <span class="em">/</span> MinWoo Sung
       </h1>
-      <p class="hero-quote reveal">
-        <span class="quote-mark">“</span>AI가 코드를 대신 쓰는 시대에도,<br/>
-        <span class="kr"><span class="hl">문제를 정의하고</span> · <span class="hl">구조를 설계하고</span> · <span class="hl">유연하게 대응하는</span> 감각은</span><br/>
-        <span class="kr">여전히 개발자의 몫이라 생각합니다.</span><span class="quote-mark">”</span>
-      </p>
       <p class="tagline reveal">
-        3년 9개월간 백엔드를 다루며 <strong>도메인 분석 · 스키마 설계 · 문제 정의</strong>를 반복했습니다.
-        Django · AWS · 검색엔진 · ComfyUI 기반 서비스를 만들었고, 배포까지 진행했습니다.
+        약 4년간 Django 백엔드를 개발하며 <strong>도메인 분석과 DB 설계</strong>를 주로 맡아 왔습니다.
+        검색엔진, AI 이미지 생성 서비스, 금융권 폐쇄망 서비스를 만들고 배포·운영까지 직접 맡았습니다.
       </p>
     </div>
   </section>
@@ -783,14 +755,14 @@
       <div class="about-grid">
         <p class="about-lead reveal">
           플러스엑스에서 <span class="kr hl-em">2022.12 ~ 2026.08, 약 3년 9개월</span>간
-          <span class="kr">도메인을 이해하고, 구조를 설계하고, 문제를 정의해 풀어내는 일</span>을 반복해 왔습니다.
+          <span class="kr">백엔드 개발자</span>로 일했고, 지금은 솔트룩스 소속으로 KB자산운용 홈페이지를 운영하고 있습니다.
         </p>
         <div class="about-body reveal">
-          <p>참여한 프로젝트 대부분에서 <strong>도메인 분석과 DB 스키마 설계</strong>를 직접 맡았습니다. 요구사항이 달라지거나 새로운 제약이 생겼을 때 구조를 다시 잡는 일에 가장 많은 시간을 쓰고, 그 위에 Django/DRF 서버와 검색엔진을 붙여 나갔습니다.</p>
+          <p>참여한 프로젝트 대부분에서 <strong>도메인 분석과 DB 스키마 설계</strong>를 직접 맡았고, Django/DRF 서버와 검색엔진을 개발했습니다.</p>
           <p>ComfyUI 기반 AI 이미지 생성 서비스에서는 백엔드 개발과 GPU 서버 배포·API 연동을 담당했고, 가장 최근에는 <strong>KB 자산운용 통합 개편</strong>에서 PL로 KB 내부 DB·외부 데이터 소스 통합과 검색 엔진 설계를 이끌었습니다.</p>
-          <p>현재는 KB자산운용 측 요청으로 오픈 직전 <strong>솔트룩스</strong> 소속으로 다시 합류해, 2026년 9월 정식 오픈을 함께 마무리하고 홈페이지 전반의 유지보수와 배포 자동화를 맡고 있습니다.</p>
-          <p>인프라와 배포도 서비스가 굴러가는 선까지는 직접 다뤄왔지만, 그보다 <strong>새로운 도메인을 빠르게 이해하고 문제를 다시 정의해 구조로 풀어내는 감각</strong>을 강점으로 생각합니다.</p>
-          <p>참여한 팀에서는 <strong>GitHub PR 기반 코드 리뷰와 팀 QA</strong>를 기본으로, 설계를 나눠 잡고 구현을 위임하며 프로젝트를 진행해 왔습니다.</p>
+          <p>현재는 KB자산운용 측 요청으로 오픈 직전 <strong>솔트룩스</strong> 소속으로 다시 합류해, 2026년 9월 정식 오픈을 함께 마무리하고 홈페이지 유지보수·관제와 배포 자동화를 맡고 있습니다.</p>
+          <p>요구사항이 바뀌면 코드부터 고치기보다 구조를 먼저 다시 봅니다. 삼성 GenI의 JSON 스키마 구조와 그룹웨어 결재라인 재설계가 그런 경우였습니다.</p>
+          <p>팀에서는 <strong>GitHub PR 기반 코드 리뷰와 팀 QA</strong>를 기본으로 진행했고, PL로 일할 때는 설계를 맡고 구현은 후임 개발자와 나눠 진행했습니다.</p>
         </div>
       </div>
     </div>
@@ -813,8 +785,8 @@
         </div>
         <div class="card" data-tilt>
           <span class="num">02 / Problem-solving</span>
-          <h3><span class="kr">문제 정의 · 유연 대응</span></h3>
-          <p>요구사항이 달라지거나 제약 조건이 새로 생겨도, 다시 설계부터 빠르게 고민해 대응해 왔습니다. AI 시대일수록 유연하게 대응하는 능력이 개발자에게 필요하다고 생각합니다.</p>
+          <h3><span class="kr">변경 대응</span></h3>
+          <p>요구사항이나 제약이 바뀌면 설계부터 다시 봤습니다. KB 프로젝트 중반 데이터 소스가 KB 내부 DB 하나로 바뀌었을 때 스키마를 다시 정리했고, 폐쇄망 조건 때문에 컨테이너 런타임이 두 번 바뀌는 동안에도 무중단 배포를 유지했습니다.</p>
         </div>
         <div class="card" data-tilt>
           <span class="num">03 / Performance</span>
@@ -834,7 +806,7 @@
         <div class="card" data-tilt>
           <span class="num">06 / Initiative</span>
           <h3><span class="kr">자율 제안 · 실행</span></h3>
-          <p>프로젝트의 요구사항이 아니더라도 필요한 개선은 스스로 제안하고 구현합니다. 회사의 인터뷰 업무에서 병목을 보고 <strong>업무 외 시간에 개인 사이드 프로젝트로</strong> AI 기반 인터뷰 관리 플랫폼을 만들어 사내 배포까지 마쳤고, 자산운용 사이트의 키워드 기반 추천·Elasticsearch 도입, 그룹웨어 SSO 도입 등도 그 결과입니다.</p>
+          <p>필요하다고 본 개선은 요청이 없어도 먼저 제안했습니다. 그룹웨어 SSO 도입과 자산운용 사이트의 키워드 기반 추천 설계가 그런 경우이고, 회사 인터뷰 업무의 병목은 <strong>업무 외 시간에 개인 사이드 프로젝트로</strong> AI 인터뷰 관리 플랫폼을 만들어 사내 배포까지 했습니다.</p>
         </div>
       </div>
     </div>
@@ -954,11 +926,11 @@
                 <a class="ext-link" href="https://kbam.co.kr" target="_blank" rel="noopener">kbam.co.kr</a>
                 <ul>
                   <li><strong>다중 데이터 소스 통합 · 방향 전환 대응</strong> — 제로인·FnGuide·KB 내부 DB 등 서로 다른 데이터 소스의 스키마 분석·통합 설계로 시작. 프로젝트 중반 클라이언트가 <strong>KB 내부 DB 단일 소스로 방향을 바꾸면서</strong>, 해당 DB 스키마 기준으로 다시 정리해 대응한 케이스.</li>
-                  <li><strong>폐쇄망 AWS 인프라 · 컨테이너 런타임 재선정</strong> — 완전 폐쇄망 조건에서 매니지드 컨테이너 사용이 어려워 <strong>RedHat 기반 Podman으로 이관</strong>했고, 이후 환경이 폐쇄망 AWS로 정리되며 <strong>Docker로 되돌림</strong>. 런타임이 두 차례 바뀌는 동안에도 Nginx 기반 Blue/Green 무중단 배포와 GitHub Actions CI/CD는 유지되도록 구성.</li>
+                  <li><strong>폐쇄망 AWS 인프라 · 컨테이너 런타임 재선정</strong> — 완전 폐쇄망 조건에서 매니지드 컨테이너 사용이 어려워 <strong>RedHat 기반 Podman으로 이관</strong>했고, 이후 폐쇄망 AWS 환경으로 확정되면서 <strong>Docker로 되돌림</strong>. 런타임이 두 차례 바뀌는 동안에도 Nginx 기반 Blue/Green 무중단 배포와 GitHub Actions CI/CD는 유지되도록 구성.</li>
                   <li><strong>시계열 데이터 캐싱 최적화</strong> — 수익률·구성종목 비율·가격 등 시계열 데이터가 리스트·상세 전 구간에서 반복 조회돼 응답이 <span class="metric">1~2s</span>까지 지연. <strong>전날 종가 기준으로 자주 조회되는 데이터를 취합해 Redis에 캐시</strong> → 응답 <span class="metric">0.2s</span> 수준(약 80% 개선).</li>
                   <li><strong>통합 검색 엔진 · ETL 파이프라인 연결</strong> — ETF·Fund·컨텐츠·공지사항까지 한 검색으로 다루기 위해 LIKE 검색으로는 사용성이 나오지 않음. <strong>ETL 업체 처리 완료 시점에 스케줄러로 OpenSearch에 데이터 반영 + 캐시 처리</strong>까지 파이프라인 구축.</li>
                   <li><strong>키워드 기반 사이트 설계 · 추천 시스템 (자발 제안)</strong> — 사이트 전체를 <strong>키워드 중심으로 움직이도록 스스로 제안·설계</strong>. 상품·컨텐츠에 키워드를 붙여 상품 진입 시 연관 컨텐츠 자동 추천, 유저가 본 상품 키워드를 정수 체계로 DB에 누적해 유사 상품을 추천하는 구조. 설계·리뷰는 본인이 담당하고 <strong>실 구현은 후임 개발자에게 위임</strong>.</li>
-                  <li><strong>고객사 요청으로 오픈 직전 재투입 · 전환·오픈 참여</strong> — 플러스엑스 퇴사 후 <strong>KB자산운용 측 요청으로 솔트룩스 소속으로 다시 합류</strong>. 9월 19일 새벽 DNS IP 전환과 종합 테스트를 거쳐 <strong>9월 21일 정식 오픈</strong>까지 함께 진행했고, 오픈 이후 홈페이지 유지보수와 배포 자동화를 맡고 있음.</li>
+                  <li><strong>고객사 요청으로 오픈 직전 재투입 · 전환·오픈 참여</strong> — 오픈 일정이 밀리면서 플러스엑스와 KB 간 계약이 먼저 종료됐고, 이후 <strong>KB자산운용 측 요청으로 솔트룩스 소속으로 다시 합류</strong>. 9월 19일 새벽 DNS IP 전환과 종합 테스트를 거쳐 <strong>9월 21일 정식 오픈</strong>까지 함께 진행했고, 오픈 이후 홈페이지 유지보수·관제와 배포 자동화를 맡고 있음.</li>
                 </ul>
               </div>
             </div>
@@ -1084,7 +1056,7 @@
                     <div class="ps-body">앞선 삼성 프로젝트에서 잡은 <strong>JSON 스키마 추상화 방향은 옳았지만</strong>, 스키마가 파일에 있어 <strong>모델·파라미터 하나 바꾸려면 배포가 필요</strong>했고, <strong>비개발자가 손댈 수 없었습니다</strong>. 모델 교체나 장애 대응도 모두 개발자가 직접 진행해야 했습니다.</div>
 
                     <div class="ps-label">Solution</div>
-                    <div class="ps-body">스키마 자체를 <strong>DB로 이전</strong>. 모델 하나당 한 row에 <strong>요청 스키마와 UI 스키마를 함께 저장</strong>해 워크플로우와 UI가 절대 어긋나지 않게 만들었습니다. UI 컴포넌트는 별도 모델로 <strong>카탈로그화해 재사용</strong>, 모델별 활성/비활성은 데이터 스위치로 제어.</div>
+                    <div class="ps-body">스키마 자체를 <strong>DB로 이전</strong>. 모델 하나당 한 row에 <strong>요청 스키마와 UI 스키마를 함께 저장</strong>해 워크플로우와 UI가 어긋나지 않게 만들었습니다. UI 컴포넌트는 별도 모델로 <strong>카탈로그화해 재사용</strong>, 모델별 활성/비활성은 데이터 스위치로 제어.</div>
 
                     <div class="ps-label">Impact</div>
                     <div class="ps-body">신규 모델·기능이 <strong>어드민에서 row 추가만으로 즉시 반영</strong>. 실제 운영에서 Sagemaker → Flux.1 dev → Fal AI로의 <strong>모델 교체를 배포 없이 진행</strong>했고, 장애 시 데이터 스위치로 즉시 차단하며 사용자에게 사유 메시지를 노출. 모델별 원가까지 데이터로 관리돼 대시보드 집계에 그대로 사용.</div>
@@ -1100,7 +1072,7 @@
                     <div class="ps-body">이미지 검색 기능을 얹으려 했을 때, <strong>프롬프트 텍스트 기반 검색만으로는 한계</strong>가 있었습니다. 디자인 회사 특성상 유저가 <strong>이미지의 '느낌'이나 분위기로 검색</strong>하려는 경우가 많은데, 이런 감각은 프롬프트 문구에는 잘 드러나지 않아 별도의 <strong>키워드 기반 검색</strong>이 필요했습니다.</div>
 
                     <div class="ps-label">Solution</div>
-                    <div class="ps-body">이미지 생성이 끝나는 시점에 <strong>사내 GPU 서버로 image-to-keyword를 돌려 이미지 자체에서 키워드를 추출</strong>하고, 이 키워드를 검색 대상으로 삼도록 했습니다. 그리고 검색 결과가 상위 소수의 이미지에만 쏠리는 문제를 해결하기 위해 <strong>가중치 랭킹(키워드 매칭 70% / 조회수 20% / 북마크 10%)</strong>을 얹어, 정확도와 다양성을 동시에 확보했습니다.</div>
+                    <div class="ps-body">이미지 생성이 끝나는 시점에 <strong>사내 GPU 서버로 image-to-keyword를 돌려 이미지 자체에서 키워드를 추출</strong>하고, 이 키워드를 검색 대상으로 삼도록 했습니다. 그리고 검색 결과가 상위 소수의 이미지에만 쏠리는 문제를 해결하기 위해 <strong>가중치 랭킹(키워드 매칭 70% / 조회수 20% / 북마크 10%)</strong>을 얹어, 결과가 일부 이미지에 쏠리지 않게 했습니다.</div>
 
                     <div class="ps-label">Impact</div>
                     <div class="ps-body">프롬프트만으로는 안 걸리던 이미지가 <strong>내용 기반으로 검색</strong>되기 시작. 인기 이미지에 쏠리던 결과 편중이 완화돼 <strong>같은 검색어에도 결과가 매번 다양</strong>하게 나오도록 튜닝. 이후 EventLog·SearchLog를 남겨 랭킹 파라미터를 지속 조정할 근거를 확보.</div>
@@ -1161,7 +1133,7 @@
                     <div class="ps-body">사내에 컨택트·GenAI 등 <strong>서비스마다 자체 계정 DB</strong>가 있었습니다. 초기 가입 시점에만 그룹웨어와 연동되고 이후에는 각 서버가 아이디·비밀번호를 따로 저장·관리하는 구조라, <strong>퇴사자 접근을 일일이 서비스마다 끊어야</strong> 했고 <strong>그룹웨어 비밀번호를 바꿔도 다른 사이트의 비밀번호는 그대로</strong> 남았습니다. 계정 관리가 서비스 수만큼 늘어나는 게 문제였습니다.</div>
 
                     <div class="ps-label">Solution</div>
-                    <div class="ps-body">회사가 지시한 과제는 아니었습니다. <strong>가능성을 직접 보고 프로토타입으로 검증한 뒤 도입까지 이어간 케이스</strong>입니다. 그룹웨어를 사내 통합 인증 서버로 세워(SAML · OAuth 2.0 기반, django-oauth-toolkit 활용) 각 서비스가 여기에 인증을 위임하도록 만들고, 클라이언트 관리·그룹사 SSO 신청 페이지를 어드민에 붙여 <strong>신규 서비스 등록도 코드 없이 데이터로 처리</strong>되도록 구성했습니다.</div>
+                    <div class="ps-body">회사가 지시한 과제는 아니었습니다. <strong>가능성을 직접 보고 프로토타입으로 검증한 뒤 도입까지 이어간 케이스</strong>입니다. 그룹웨어를 사내 통합 인증 서버로 세워(SAML · OAuth 2.0 기반, django-oauth-toolkit 활용) 각 서비스가 로그인을 그룹웨어에 맡기도록 만들고, 클라이언트 관리·그룹사 SSO 신청 페이지를 어드민에 붙여 <strong>신규 서비스 등록도 코드 없이 데이터로 처리</strong>되도록 구성했습니다.</div>
 
                     <div class="ps-label">Impact</div>
                     <div class="ps-body">계정이 <strong>그룹웨어 단일 소스</strong>로 정리돼, 퇴사자 계정 하나만 비활성화하면 모든 서비스 접근이 끊기고 비밀번호도 한 번의 변경으로 전 서비스에 적용됩니다. 최근 사내 <strong>바이브 코딩으로 늘어난 신규 서비스</strong>들도 별도 계정 설계 없이 그룹웨어 계정에 곧바로 붙일 수 있게 됐습니다.</div>
@@ -1199,7 +1171,7 @@
                     <div class="ps-body">전사에 도입된 <strong>Slack을 결재 채널로 활용</strong>. 결재가 오면 슬랙 메시지에 승인·반려·취소 버튼을 붙여 <strong>슬랙 안에서 결재를 완결</strong>할 수 있게 했고, 처리 결과는 웹에도 즉시 반영되도록 양방향으로 연결했습니다. 슬래시 커맨드·첨부파일 노출·스레드 업데이트까지 얹어 슬랙만으로도 결재 흐름이 끊기지 않게 만들었습니다.</div>
 
                     <div class="ps-label">Impact</div>
-                    <div class="ps-body"><strong>결재 회전 속도가 눈에 띄게 빨라졌고</strong>, 앱을 만들지 않고도 이미 전사에 깔린 플랫폼(슬랙 알림 · 액션)을 활용해 <strong>리소스 대비 최선의 결과</strong>를 낸 케이스로 남았습니다.</div>
+                    <div class="ps-body"><strong>자리에 없어도 슬랙에서 바로 결재</strong>할 수 있게 됐고, 앱을 따로 만들지 않고 이미 전사에서 쓰던 슬랙으로 해결했습니다.</div>
                   </div>
                 </div>
 
@@ -1231,7 +1203,7 @@
           <div class="proj-period">2024.02 — 2025.03</div>
           <div class="proj-title">
             BlurBlur
-            <span class="short">AI 모델 마케팅 웹사이트 백엔드·CMS·인프라. Django Unfold 기반 CMS와 AWS 풀세팅.</span>
+            <span class="short">AI 모델 마케팅 웹사이트 백엔드·CMS·인프라. Django Unfold 기반 CMS와 AWS 인프라 세팅.</span>
           </div>
           <span class="proj-toggle" aria-hidden="true">+</span>
         </button>
@@ -1258,10 +1230,10 @@
                   <span class="chip">LINE Bot</span>
                 </div>
                 <ul>
-                  <li>AWS 인프라 풀세팅 — EC2, S3, Lightsail RDS, SSL, Load Balancer, FTP, Nginx.</li>
+                  <li>AWS 인프라 전체 세팅 — EC2, S3, Lightsail RDS, SSL, Load Balancer, FTP, Nginx.</li>
                   <li>Theme/Portfolio/Model 이미지 관리 시스템(다중 업로드, 이미지 리사이징·압축).</li>
                   <li>Django Unfold 기반 CMS, Blue/Red 모델 CMS 분리, ModelGroup 모델 도입.</li>
-                  <li>LINE 알림(고문·대표·이사 컨택 알림), 슬랙 웹훅 기반 에러 알림.</li>
+                  <li>LINE 알림(고문·대표·이사 문의 알림), 슬랙 웹훅 기반 에러 알림.</li>
                 </ul>
               </div>
             </div>
@@ -1391,7 +1363,7 @@
                 <ul>
                   <li><strong>병목 발견 → 자발 구축</strong> — UXUI 프로젝트 선행 단계인 클라이언트 임직원 인터뷰가 엑셀 질문지·개별 이메일·수기 취합으로 반복되는 병목을 발견하고, 회사 업무가 아닌 개인 사이드 프로젝트로 퇴근 후 개인 시간에 직접 기획·구축. 이후 사내 배포와 그룹웨어 SSO 연동까지 마치고 퇴사 시 코드를 회사에 인계.</li>
                   <li><strong>AI + 사람 협업 구조</strong> — AI가 사이트 분석·질문지 생성·응답 취합을 수행하되, 산출물을 사람이 검토·확정해야 다음 단계로 넘어가는 단계별 잠금 구조로 설계.</li>
-                  <li><strong>멀티모델 추상화</strong> — Claude / Gemini를 동일 인터페이스로 추상화해 분석 단계마다 모델 선택·교체 가능. LLM 응답 불안정성은 JSON 추출·형식 검증·기본값 처리 레이어로 대응.</li>
+                  <li><strong>멀티모델 추상화</strong> — Claude / Gemini를 동일 인터페이스로 추상화해 분석 단계마다 모델 선택·교체 가능. 불안정한 LLM 응답은 JSON 추출·형식 검증·기본값 처리로 대응.</li>
                   <li><strong>디자인 시안까지 자동화</strong> — 취합 결과로 디자인 브리프·규격서를 생성하고 Google Stitch와 연동해 1차 디자인 시안까지 자동 생성.</li>
                   <li><strong>AI Native 개발 방식</strong> — 설계·리뷰는 직접, 구현은 AI에 위임하는 방식으로 8개 서비스 풀스택을 퇴근 후 개인 시간에 1개월 만에 단독 완성.</li>
                 </ul>
